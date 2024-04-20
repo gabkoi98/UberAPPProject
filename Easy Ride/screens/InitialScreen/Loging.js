@@ -43,6 +43,11 @@ const LoginScreen = ({ navigation }) => {
               <Text style={styles.buttonText}>Sign In</Text>
             </View>
           </Pressable>
+
+          <View style={styles.trycontainer}>
+            <Text>Create a coount</Text>
+            <Text>Forgot Password ?</Text>
+          </View>
         </View>
       </KeyboardAvoidingView>
     </TouchableWithoutFeedback>
@@ -88,6 +93,14 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "white",
     fontWeight: "bold",
+  },
+
+  trycontainer: {
+    flexDirection: "row",
+    // justifyContent: "center",
+    margin: 10,
+    gap: 100,
+    fontSize: 20,
   },
 });
 

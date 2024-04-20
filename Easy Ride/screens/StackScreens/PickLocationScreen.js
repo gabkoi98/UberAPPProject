@@ -169,6 +169,9 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
 
+
+//  button styes
+
   buttonContainer: {
     backgroundColor: "#211951",
     borderRadius: 20,

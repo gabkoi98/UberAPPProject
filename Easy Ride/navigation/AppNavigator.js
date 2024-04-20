@@ -97,8 +97,8 @@ const HomeStackGroup = () => {
         name="SelectCartScreen"
         component={SelectCartScreen}
         options={({ navigation }) => ({
-          title: "Select Car Screen",
-          headerTitleAlign: "center",
+          title: "Back",
+          headerTitleAlign: "left ",
           headerTransparent: true,
           headerLeft: () => (
             <Pressable onPress={() => navigation.goBack()}>
