@@ -1,6 +1,7 @@
 import { StyleSheet, Text, TouchableOpacity, View, Image } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
+import { AntDesign } from "@expo/vector-icons";
 
 function HomeScreen() {
   return (
@@ -36,12 +37,29 @@ function HomeScreen() {
           size={24}
           color="black"
         />
+
         <View style={styles.work}>
           <View style={styles.tryContainer}>
-            <Text style={styles.PickupText}>pickup Location</Text>
+            <Text style={styles.PickupText}>Destination</Text>
           </View>
           <View style={styles.tryContainer2}>
             <Text style={styles.PickupText}>pickup Location</Text>
+          </View>
+        </View>
+        <View style={styles.line} />
+        <View style={styles.reacentContainer}>
+          <Text style={styles.recentText}>Recent Pickups</Text>
+          <View style={styles.timepickContainer}>
+            <AntDesign
+              style={styles.Iconclock}
+              name="clockcircleo"
+              size={24}
+              color="black"
+            />
+            <View style={styles.Locationtimecontainer}>
+              <Text style={styles.locaText}>Boulevard Palace, Sinkor</Text>
+              <Text>April 1 , 2024 at 8:30 Pm</Text>
+            </View>
           </View>
         </View>
       </View>
@@ -57,28 +75,30 @@ const styles = StyleSheet.create({
   },
 
   verticalLIneConrtainer: {
-    // paddingTop: 70,
-    justifyContent: "space-evenly",
+    // justifyContent: "space-evenly",
     width: "100%",
-    // marginBottom: 20,
-    marginTop: 30,
-    marginLeft: 20,
+    marginBottom: 20,
+    marginLeft: 8,
+    marginTop: 40,
   },
+
   vIcon: {
     fontSize: 30,
-    marginTop: -20,
+    marginTop: -2,
+    // marginTop: 15,
   },
 
   vIcon2: {
     fontSize: 30,
-    marginTop: -20,
+    marginTop: 20,
   },
+
   verticleLine: {
-    height: "40%",
+    height: "20%",
     width: 1,
     backgroundColor: "#909090",
     marginLeft: 15,
-    marginTop: -30,
+    // marginTop: -18,
   },
 
   hereImage: {
@@ -115,23 +135,31 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
 
+  line: {
+    borderBottomColor: "black",
+    borderBottomWidth: 1,
+    marginVertical: 10,
+    margin: 20,
+    marginTop: -45,
+  },
+
   // this is for the try
   tryContainer: {
     marginLeft: 32,
-    marginTop: -200,
-    backgroundColor: "gray",
+    marginTop: -170,
+    backgroundColor: "#B4B4B3",
     borderRadius: 10,
-    padding: 23,
-    width: "85%",
+    padding: 21,
+    width: "86%",
   },
   tryContainer2: {
     // flex:1,
     marginLeft: 32,
     marginTop: -170,
-    backgroundColor: "gray",
+    backgroundColor: "#B4B4B3",
     borderRadius: 10,
-    padding: 23,
-    width: "85%",
+    padding: 21,
+    width: "86%",
   },
 
   PickupText: {
@@ -139,7 +167,38 @@ const styles = StyleSheet.create({
   },
 
   work: {
-    marginTop: 100,
+    marginTop: 122,
+  },
+
+  reacentContainer: {
+    marginLeft: 15,
+    // marginTop: -3,
+  },
+
+  recentText: {
+    fontSize: 30,
+    fontWeight: "bold",
+  },
+
+  timepickContainer: {
+    flexDirection: "row",
+    marginTop: 5,
+    // marginLeft: 0,
+  },
+
+  Iconclock: {
+    marginTop: 12,
+    marginLeft: 10,
+  },
+
+  Locationtimecontainer: {
+    marginLeft: 15,
+    marginTop: -2,
+  },
+
+  locaText: {
+    fontSize: 20,
+    color: "black",
   },
 });
 export default HomeScreen;
