@@ -1,0 +1,13 @@
+<View style={styles.work}>
+          <View style={styles.tryContainer}>
+            <Pressable onPress={() => navigation.navigate("PickLocation")}>
+              <Text style={styles.PickupText}>Destination</Text>
+            </Pressable>
+          </View>
+
+          <View style={styles.tryContainer2}>
+            <Pressable onPress={() => navigation.navigate("PickLocation")}>
+              <Text style={styles.PickupText}>pickup Location</Text>
+            </Pressable>
+          </View>
+        </View>

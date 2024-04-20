@@ -8,22 +8,16 @@ import { Pressable } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 
-
 // Import your existing screen components here
 // import HomeScreen from "../screens/HomeScreen";
 // Import your existing screen components here
 // import HomeScreen from "../screens/HomeScreen";
 // import HomeScreen from "../screens/HomeScreen"
 
-
 import HomeScreen from "../screens/tabbarScreen/HomeScreen";
 import SettingScreen from "../screens/tabbarScreen/SettingScreen";
-import ProfileScreen from "../screens/tabbarScreen/ProfileScreen";
-
-
-
-
-
+// import ProfileScreen from "../screens/tabbarScreen/ProfileScreen";
+import PickLocation from "../screens/StackScreens/PickLocationScreen";
 
 const Tab = createBottomTabNavigator();
 const HomeStackScreen = createNativeStackNavigator();
@@ -32,7 +26,7 @@ const AuthStack = createNativeStackNavigator();
 const AppNavigator = () => {
   return (
     <NavigationContainer>
-      <AuthStack.Navigator >
+      <AuthStack.Navigator>
         {/* <AuthStack.Screen
           name="Login"
           component={LoginScreen}
@@ -57,10 +51,10 @@ const MainTabs = () => {
         options={{
           tabBarLabel: "Home",
           tabBarIcon: () => <Entypo name="home" size={24} color="black" />,
-          headerShown: false
+          headerShown: false,
         }}
       />
-      
+
       <Tab.Screen
         name="Setting"
         component={SettingScreen}
@@ -84,24 +78,27 @@ const HomeStackGroup = () => {
           headerShown: false,
         }}
       />
-      {/* <HomeStackScreen.Screen
-        name="PickLocationScreen"
-        component={PickLocationScreen}
-        options={({ navigation }) => ({
-          title: "Pick Location Screen",
-          headerTitleAlign: "center",
-          headerTransparent: true,
-          headerLeft: () => (
-            <Pressable onPress={() => navigation.goBack()}>
-              <MaterialIcons
-                name="arrow-back-ios-new"
-                size={24}
-                color="black"
-              />
-            </Pressable>
-          ),
-        })}
-      /> */}
+      {
+        <HomeStackScreen.Screen
+          name="PickLocation"
+          component={PickLocation}
+          options={({ navigation }) => ({
+            title: "Back",
+            headerTitleAlign: "left",
+            headerTransparent: true,
+            headerLeft: () => (
+              <Pressable onPress={() => navigation.goBack()}>
+                <MaterialIcons
+                  name="arrow-back-ios-new"
+                  size={24}
+                  color="black"
+                />
+              </Pressable>
+            ),
+          })}
+        />
+      }
+
       {/* <HomeStackScreen.Screen
         name="SelectCartScreen"
         component={SelectCartScreen}

@@ -1,9 +1,9 @@
-import { StyleSheet, Text, TouchableOpacity, View, Image } from "react-native";
+import { StyleSheet, Text, Pressable, View, Image } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 
-function HomeScreen() {
+function HomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <View style={styles.heroheader}>
@@ -38,15 +38,22 @@ function HomeScreen() {
           color="black"
         />
 
-        <View style={styles.work}>
+        <View style={styles.workContainer}>
           <View style={styles.tryContainer}>
-            <Text style={styles.PickupText}>Destination</Text>
+            <Pressable onPress={() => navigation.navigate("PickLocation")}>
+              <Text style={styles.PickupText}>pickup Location</Text>
+            </Pressable>
           </View>
+
           <View style={styles.tryContainer2}>
-            <Text style={styles.PickupText}>pickup Location</Text>
+            <Pressable onPress={() => navigation.navigate("PickLocation")}>
+              <Text style={styles.PickupText}>Destination</Text>
+            </Pressable>
           </View>
         </View>
+
         <View style={styles.line} />
+
         <View style={styles.reacentContainer}>
           <Text style={styles.recentText}>Recent Pickups</Text>
           <View style={styles.timepickContainer}>
@@ -58,7 +65,7 @@ function HomeScreen() {
             />
             <View style={styles.Locationtimecontainer}>
               <Text style={styles.locaText}>Boulevard Palace, Sinkor</Text>
-              <Text>April 1 , 2024 at 8:30 Pm</Text>
+              <Text style={styles.dateTime}>April 1 , 2024 at 8:30 Pm</Text>
             </View>
           </View>
         </View>
@@ -75,7 +82,6 @@ const styles = StyleSheet.create({
   },
 
   verticalLIneConrtainer: {
-    // justifyContent: "space-evenly",
     width: "100%",
     marginBottom: 20,
     marginLeft: 8,
@@ -84,13 +90,12 @@ const styles = StyleSheet.create({
 
   vIcon: {
     fontSize: 30,
-    marginTop: -2,
-    // marginTop: 15,
+    marginTop: -3,
   },
 
   vIcon2: {
     fontSize: 30,
-    marginTop: 20,
+    marginBottom: -7,
   },
 
   verticleLine: {
@@ -98,7 +103,7 @@ const styles = StyleSheet.create({
     width: 1,
     backgroundColor: "#909090",
     marginLeft: 15,
-    // marginTop: -18,
+    marginTop: 5,
   },
 
   hereImage: {
@@ -135,55 +140,53 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
 
-  line: {
-    borderBottomColor: "black",
-    borderBottomWidth: 1,
-    marginVertical: 10,
-    margin: 20,
-    marginTop: -45,
+  workContainer: {
+    marginTop: -140,
   },
 
-  // this is for the try
   tryContainer: {
-    marginLeft: 32,
-    marginTop: -170,
+    top: 0,
+    left: 32,
     backgroundColor: "#B4B4B3",
     borderRadius: 10,
     padding: 21,
     width: "86%",
   },
+
   tryContainer2: {
-    // flex:1,
     marginLeft: 32,
-    marginTop: -170,
     backgroundColor: "#B4B4B3",
     borderRadius: 10,
     padding: 21,
     width: "86%",
+    marginTop: 23,
   },
 
   PickupText: {
-    fontSize: 20,
+    color: "white",
+    fontSize: 18,
   },
 
-  work: {
-    marginTop: 122,
+  line: {
+    borderBottomColor: "gray",
+    borderBottomWidth: 1,
+    marginVertical: 10,
+    margin: 5,
+    marginTop: 45,
   },
 
   reacentContainer: {
-    marginLeft: 15,
-    // marginTop: -3,
+    marginLeft: 5,
   },
 
   recentText: {
-    fontSize: 30,
+    fontSize: 28,
     fontWeight: "bold",
   },
 
   timepickContainer: {
     flexDirection: "row",
     marginTop: 5,
-    // marginLeft: 0,
   },
 
   Iconclock: {
@@ -193,12 +196,15 @@ const styles = StyleSheet.create({
 
   Locationtimecontainer: {
     marginLeft: 15,
-    marginTop: -2,
   },
 
   locaText: {
-    fontSize: 20,
+    fontSize: 23,
     color: "black",
+  },
+
+  dateTime: {
+    fontSize: 18,
   },
 });
 export default HomeScreen;
