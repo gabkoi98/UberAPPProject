@@ -45,8 +45,8 @@ const LoginScreen = ({ navigation }) => {
           </Pressable>
 
           <View style={styles.trycontainer}>
-            <Text>Create a coount</Text>
-            <Text>Forgot Password ?</Text>
+            <Text>Create a Account</Text>
+            <Text>Forgot Password?</Text>
           </View>
         </View>
       </KeyboardAvoidingView>
@@ -62,34 +62,35 @@ const styles = StyleSheet.create({
 
   signText: {
     textAlign: "center",
-    fontSize: 40,
+    fontSize: 25,
     fontWeight: "bold",
+    marginBottom: 20,
   },
 
   inputField: {
-    borderWidth: 2,
-    padding: 16,
-    borderRadius: 15,
-    marginTop: 25,
+    borderWidth: 1,
+    padding: 7,
+    borderRadius: 5,
+    marginTop: 15,
   },
 
   inputform: {
-    fontSize: 23,
+    fontSize: 16,
   },
 
   buttonContainer: {
     marginTop: 35,
     backgroundColor: "#211951",
     paddingHorizontal: 5, // corrected
-    borderTopLeftRadius: 25,
-    borderTopRightRadius: 25,
+    borderTopLeftRadius: 5,
+    borderTopRightRadius: 5,
     padding: 10,
-    paddingVertical: 25,
-    marginLeft: 10,
+    // paddingVertical: 25,
+    // marginLeft: 10,
   },
 
   buttonText: {
-    fontSize: 20,
+    fontSize: 16,
     textAlign: "center",
     color: "white",
     fontWeight: "bold",
@@ -98,7 +99,7 @@ const styles = StyleSheet.create({
   trycontainer: {
     flexDirection: "row",
     // justifyContent: "center",
-    margin: 10,
+    marginTop: 10,
     gap: 100,
     fontSize: 20,
   },

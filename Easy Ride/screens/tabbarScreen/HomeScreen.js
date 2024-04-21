@@ -1,4 +1,11 @@
-import { StyleSheet, Text, Pressable, View, Image } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  Pressable,
+  View,
+  Image,
+  TextInput,
+} from "react-native";
 import { Entypo } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
@@ -13,41 +20,47 @@ function HomeScreen({ navigation }) {
           source={require("../../assets/user.png")}
         />
       </View>
-      <View style={styles.requestContainer}>
-        <Text style={styles.requestText}>Request now, Ride When </Text>
-        <Text style={styles.requestText}>you're Ready</Text>
 
-        <Text style={styles.keyMessage}>
-          Hasles-free pickup with flexibility to add time
+      <View style={styles.requestContainer}>
+        <Text style={styles.requestText}>
+          Request now, Ride When you're Ready
         </Text>
-        <Text style={styles.keyMessage2}>for unexpected delays.</Text>
+        <Text style={styles.keyMessage}>
+          Hasles-free pickup with flexibility to add time for unexpected delays.
+        </Text>
       </View>
 
       <View style={styles.verticalLIneConrtainer}>
         <MaterialIcons
           style={styles.vIcon2}
           name="my-location"
-          size={24}
+          size={20}
           color="black"
         />
         <View style={styles.verticleLine}></View>
         <Entypo
           style={styles.vIcon}
           name="location-pin"
-          size={24}
+          size={20}
           color="black"
         />
 
         <View style={styles.workContainer}>
-          <View style={styles.tryContainer}>
-            <Pressable onPress={() => navigation.navigate("PickLocation")}>
-              <Text style={styles.PickupText}>pickup Location</Text>
-            </Pressable>
+          <View style={styles.inputContainer}>
+            {/* <Pressable onPress={() => navigation.navigate("PickLocation")}> */}
+            <Text style={styles.inputText}>Pickup Location</Text>
+
+            {/* <TextInput
+              style={styles.input}
+              placeholder="Pickup Location"
+              placeholderTextColor={"#000"}
+            /> */}
+            {/* </Pressable> */}
           </View>
 
-          <View style={styles.tryContainer2}>
+          <View style={styles.inputContainer}>
             <Pressable onPress={() => navigation.navigate("PickLocation")}>
-              <Text style={styles.PickupText}>Destination</Text>
+              <Text style={styles.inputText}>Destination</Text>
             </Pressable>
           </View>
         </View>
@@ -56,12 +69,13 @@ function HomeScreen({ navigation }) {
 
         <View style={styles.reacentContainer}>
           <Text style={styles.recentText}>Recent Pickups</Text>
+
           <View style={styles.timepickContainer}>
             <AntDesign
               style={styles.Iconclock}
               name="clockcircleo"
-              size={24}
-              color="black"
+              size={18}
+              color="#B4B4B3"
             />
             <View style={styles.Locationtimecontainer}>
               <Text style={styles.locaText}>Boulevard Palace, Sinkor</Text>
@@ -83,43 +97,45 @@ const styles = StyleSheet.create({
 
   verticalLIneConrtainer: {
     width: "100%",
-    marginBottom: 20,
-    marginLeft: 8,
-    marginTop: 40,
+    // marginBottom: 20,
+    // marginLeft: 8,
+    marginTop: 30,
   },
 
   vIcon: {
-    fontSize: 30,
-    marginTop: -3,
+    // fontSize: 30,
+    // paddingTop: -53,
+    paddingTop: -1,
   },
 
   vIcon2: {
-    fontSize: 30,
-    marginBottom: -7,
+    // fontSize: 30,
+    paddingBottom: -7,
   },
 
   verticleLine: {
-    height: "20%",
+    height: "19%",
     width: 1,
     backgroundColor: "#909090",
-    marginLeft: 15,
+    marginLeft: 10,
     marginTop: 5,
   },
 
   hereImage: {
-    width: 60,
-    height: 60,
-    marginTop: 15,
+    width: 40,
+    height: 40,
+    // marginTop: 15,
   },
 
   heroheader: {
     flexDirection: "row",
     justifyContent: "space-between",
+    alignItems: "center",
   },
 
   greetText: {
     fontSize: 20,
-    fontWeight: "bold",
+    // fontWeight: "bold",
   },
 
   requestText: {
@@ -133,39 +149,36 @@ const styles = StyleSheet.create({
   },
 
   keyMessage: {
-    fontSize: 16,
-    marginTop: 20,
+    fontSize: 15,
+    marginTop: 10,
   },
   keyMessage2: {
     fontSize: 16,
   },
 
   workContainer: {
-    marginTop: -140,
+    marginTop: -115,
+    gap: 25,
   },
 
-  tryContainer: {
+  inputContainer: {
     top: 0,
     left: 32,
     backgroundColor: "#B4B4B3",
-    borderRadius: 10,
-    padding: 21,
+    borderRadius: 5,
+    padding: 13,
     width: "86%",
   },
 
-  tryContainer2: {
-    marginLeft: 32,
-    backgroundColor: "#B4B4B3",
-    borderRadius: 10,
-    padding: 21,
-    width: "86%",
-    marginTop: 23,
+  input: {
+    padding: 0,
+    margin: 0,
   },
 
-  PickupText: {
-    color: "white",
-    fontSize: 18,
-  },
+  // inputText: {
+  //   color: "white",
+  //   fontSize: 18,
+  // },
 
   line: {
     borderBottomColor: "gray",
@@ -180,7 +193,7 @@ const styles = StyleSheet.create({
   },
 
   recentText: {
-    fontSize: 28,
+    fontSize: 20,
     fontWeight: "bold",
   },
 
@@ -191,7 +204,7 @@ const styles = StyleSheet.create({
 
   Iconclock: {
     marginTop: 12,
-    marginLeft: 10,
+    // marginLeft: 10,
   },
 
   Locationtimecontainer: {
@@ -199,12 +212,12 @@ const styles = StyleSheet.create({
   },
 
   locaText: {
-    fontSize: 23,
+    fontSize: 17,
     color: "black",
   },
 
   dateTime: {
-    fontSize: 18,
+    fontSize: 15,
   },
 });
 export default HomeScreen;

@@ -1,13 +1,14 @@
 import React from "react";
-import { View, StyleSheet, Text, Pressable } from "react-native";
+import { View, StyleSheet, Text, Pressable, TextInput } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const PickLocation = ({ navigation }) => {
   return (
-    <View style={styles.container}>
-      <View style={styles.verticalLIneConrtainer}>
+    <SafeAreaView style={styles.container}>
+      {/* <View style={styles.verticalLIneConrtainer}>
         <View style={styles.IconContainer}>
           <MaterialIcons
             style={styles.vIcon2}
@@ -23,24 +24,35 @@ const PickLocation = ({ navigation }) => {
             color="black"
           />
         </View>
-      </View>
+      </View> */}
       <View style={styles.work}>
         <View style={styles.tryContainer}>
           <Text style={styles.PickupText}>Pickup Location</Text>
-          <Text style={styles.DropdownText}>Robert International Airport</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Robert International Airport"
+            placeholderTextColor={"#000"}
+          />
+
+          {/* <Text style={styles.DropdownText}>Robert International Airport</Text> */}
         </View>
 
         <View style={styles.tryContainer2}>
           <Text style={styles.PickupText}>Destination</Text>
-          <Text style={styles.DropdownText}>Boulevard Palace, Sinkor</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Boulevard Palace, Sinkor"
+            placeholderTextColor={"#000"}
+          />
+          {/* <Text style={styles.DropdownText}>Boulevard Palace, Sinkor</Text> */}
         </View>
         <View style={styles.dateTimeContainer}>
           <View style={styles.dateContainer}>
-            <Text style={styles.dateText}>Date</Text>
+            <Text style={styles.PickupText}>Date</Text>
             <Text style={styles.dateText}>Feb 28, 2024</Text>
           </View>
           <View style={styles.hourContainer}>
-            <Text style={styles.dateText}>Time</Text>
+            <Text style={styles.PickupText}>Time</Text>
             <Text style={styles.dateText}>8: 30 PM</Text>
           </View>
         </View>
@@ -51,7 +63,7 @@ const PickLocation = ({ navigation }) => {
           </View>
         </Pressable>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -64,6 +76,7 @@ const styles = StyleSheet.create({
     marginTop: 170,
     // margin: 0,
     // padding: 0,
+    paddingHorizontal: 20,
   },
 
   background: {
@@ -71,6 +84,10 @@ const styles = StyleSheet.create({
     flex: 1,
     borderTopLeftRadius: 35,
     borderTopRightRadius: 35,
+  },
+
+  input: {
+    fontSize: 18,
   },
 
   lineStyle: {
@@ -83,31 +100,31 @@ const styles = StyleSheet.create({
   },
 
   work: {
-    marginTop: -270,
-    paddingLeft: 10,
+    // marginTop: -270,
+    // paddingLeft: 10,
   },
 
   tryContainer: {
-    top: 0,
-    left: 32,
+    // top: 0,
+    // left: 32,
     backgroundColor: "#B4B4B3",
     borderRadius: 10,
     padding: 10,
-    width: "86%",
+    // width: "86%",
   },
 
   tryContainer2: {
-    marginLeft: 32,
+    // marginLeft: 32,
     backgroundColor: "#B4B4B3",
     borderRadius: 10,
     padding: 10,
-    width: "86%",
+    // width: "86%",
     marginTop: 10,
   },
 
   PickupText: {
     color: "gray",
-    fontSize: 20,
+    fontSize: 16,
   },
 
   DropdownText: {
@@ -146,46 +163,49 @@ const styles = StyleSheet.create({
   dateTimeContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
-    margin: 15,
-    marginLeft: 30,
-    paddingLeft: 3,
+    marginTop: 10,
+    // margin: 15,
+    // marginLeft: 30,
+    // paddingLeft: 3,
     // width: 0,
   },
 
   dateContainer: {
     backgroundColor: "#B4B4B3",
-    padding: 18,
+    padding: 10,
+    paddingHorizontal: 30,
     borderRadius: 10,
   },
 
   hourContainer: {
     backgroundColor: "#B4B4B3",
-    padding: 18,
+    padding: 10,
+    paddingHorizontal: 30,
+
     borderRadius: 10,
-    width: 150,
+    // width: 150,
   },
 
   dateText: {
-    fontSize: 20,
+    fontSize: 18,
   },
 
-
-//  button styes
+  //  button styes
 
   buttonContainer: {
     backgroundColor: "#211951",
-    borderRadius: 20,
-    paddingVertical: 15,
-    width: 300,
-    padding: 28,
-    marginLeft: 30,
+    borderRadius: 5,
+    // paddingVertical: 5,
+    // width: 300,
+    padding: 12,
+    // marginLeft: 30,
+    marginTop: 30,
   },
 
   buttonText: {
-    fontSize: 20,
+    fontSize: 16,
     textAlign: "center",
     color: "white",
     fontWeight: "bold",
-    padding: 5,
   },
 });

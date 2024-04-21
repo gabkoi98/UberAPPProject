@@ -35,12 +35,13 @@ const SelectCartScreen = () => {
           <Text style={styles.carNameText}>Toyata H</Text>
           <Text style={styles.seatText}>4 Seats</Text>
         </View>
+
         <Text style={styles.priceText}>$120.00</Text>
       </View>
 
       <Pressable>
         <View style={styles.buttonContainer}>
-          <Text style={styles.buttonText}>Book a Ride </Text>
+          <Text style={styles.buttonText}>Book a Ride</Text>
         </View>
       </Pressable>
     </View>
@@ -50,8 +51,9 @@ const SelectCartScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 130,
-    margin: 10,
+    marginTop: 100,
+    // margin: 10,
+    paddingHorizontal: 20,
   },
 
   heading: {
@@ -62,9 +64,9 @@ const styles = StyleSheet.create({
   itemContainer: {
     flexDirection: "row",
     borderWidth: 1,
-    width: 335,
-    padding: 14,
-    marginTop: 30,
+    // width: 335,
+    padding: 10,
+    marginTop: 18,
     alignItems: "center",
     borderRadius: 10,
   },
@@ -87,29 +89,28 @@ const styles = StyleSheet.create({
   },
 
   carNameText: {
-    fontSize: 23,
+    fontSize: 19,
   },
 
   seatText: {
-    fontSize: 18,
+    fontSize: 15,
   },
 
   //  button styes
-
   buttonContainer: {
     backgroundColor: "#211951",
-    borderRadius: 15,
-    paddingVertical: 18,
-    padding: 28,
-    marginTop: 45,
+    borderRadius: 5,
+    // paddingVertical: 5,
+    // width: 300,
+    padding: 12,
+    // marginLeft: 30,
+    marginTop: 30,
   },
 
   buttonText: {
-    fontSize: 20,
+    fontSize: 16,
     textAlign: "center",
     color: "white",
-    fontWeight: "bold",
-    padding: 5,
     fontWeight: "bold",
   },
 });

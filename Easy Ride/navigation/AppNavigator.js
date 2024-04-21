@@ -79,18 +79,21 @@ const HomeStackGroup = () => {
         name="PickLocation"
         component={PickLocation}
         options={({ navigation }) => ({
-          title: "Back",
+          title: "",
           headerTitleAlign: "left",
           headerTransparent: true,
-          headerLeft: () => (
-            <Pressable onPress={() => navigation.goBack()}>
-              <MaterialIcons
-                name="arrow-back-ios-new"
-                size={24}
-                color="black"
-              />
-            </Pressable>
-          ),
+          presentation: "modal",
+          headerBackTitleVisible: false,
+          // headerBackVisible: false,
+          // headerLeft: () => (
+          //   <Pressable onPress={() => navigation.goBack()}>
+          //     <MaterialIcons
+          //       name="arrow-back-ios-new"
+          //       size={24}
+          //       color="black"
+          //     />
+          //   </Pressable>
+          // ),
         })}
       />
       <HomeStackScreen.Screen
