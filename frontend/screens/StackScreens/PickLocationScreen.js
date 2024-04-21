@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     // margin: 16,
-    marginTop: 170,
+    marginTop: 100,
     // margin: 0,
     // padding: 0,
     paddingHorizontal: 20,
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
   tryContainer: {
     // top: 0,
     // left: 32,
-    backgroundColor: "#B4B4B3",
+    backgroundColor: "#e8e8e8",
     borderRadius: 10,
     padding: 10,
     // width: "86%",
@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
 
   tryContainer2: {
     // marginLeft: 32,
-    backgroundColor: "#B4B4B3",
+    backgroundColor: "#e8e8e8",
     borderRadius: 10,
     padding: 10,
     // width: "86%",
@@ -171,14 +171,14 @@ const styles = StyleSheet.create({
   },
 
   dateContainer: {
-    backgroundColor: "#B4B4B3",
+    backgroundColor: "#e8e8e8",
     padding: 10,
     paddingHorizontal: 30,
     borderRadius: 10,
   },
 
   hourContainer: {
-    backgroundColor: "#B4B4B3",
+    backgroundColor: "#e8e8e8",
     padding: 10,
     paddingHorizontal: 30,
 
