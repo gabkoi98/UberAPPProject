@@ -7,6 +7,7 @@ import { Pressable } from "react-native";
 // Icons
 import { Entypo } from "@expo/vector-icons";
 import { MaterialIcons } from "@expo/vector-icons";
+import { FontAwesome5 } from "@expo/vector-icons";
 
 import HomeScreen from "../screens/tabbarScreen/HomeScreen";
 import SettingScreen from "../screens/tabbarScreen/SettingScreen";
@@ -14,7 +15,6 @@ import PickLocation from "../screens/StackScreens/PickLocationScreen";
 import LoginScreen from "../screens/InitialScreen/Loging";
 import SelectCartScreen from "../screens/StackScreens/selectCarScreen";
 import ProfileScreen from "../screens/tabbarScreen/ProfileScreen";
-
 
 const Tab = createBottomTabNavigator();
 const HomeStackScreen = createNativeStackNavigator();
@@ -43,13 +43,20 @@ const AppNavigator = () => {
 
 const MainTabs = () => {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+      screenOptions={{
+        tabBarHideOnKeyboard: true,
+      }}
+    >
       <Tab.Screen
         name="Home"
         component={HomeStackGroup}
         options={{
           tabBarLabel: "Home",
-          tabBarIcon: () => <Entypo name="home" size={24} color="black" />,
+          tabBarShowLabel: false,
+          tabBarIcon: ({ color, size }) => (
+            <Entypo name="home" size={size} color={color} />
+          ),
           headerShown: false,
         }}
       />
@@ -58,8 +65,11 @@ const MainTabs = () => {
         name="Setting"
         component={ProfileScreen}
         options={{
-          tabBarLabel: "Setting Sce",
-          tabBarIcon: () => <Entypo name="home" size={24} color="black" />,
+          tabBarLabel: "Profile",
+          tabBarShowLabel: false,
+          tabBarIcon: ({ color, size }) => (
+            <FontAwesome5 name="user-alt" size={size} color={color} />
+          ),
         }}
       />
     </Tab.Navigator>

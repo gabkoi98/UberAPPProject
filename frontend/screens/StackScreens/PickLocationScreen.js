@@ -1,30 +1,39 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, StyleSheet, Text, Pressable, TextInput } from "react-native";
-import { Entypo } from "@expo/vector-icons";
-import { MaterialIcons } from "@expo/vector-icons";
-import { AntDesign } from "@expo/vector-icons";
 import { SafeAreaView } from "react-native-safe-area-context";
+import DateTimePicker from "@react-native-community/datetimepicker";
 
 const PickLocation = ({ navigation }) => {
+  const [date, setDate] = useState(new Date());
+  const [mode, setMode] = useState("date");
+  const [show, setShow] = useState(false);
+  const options = {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  };
+
+  const onChange = (event, selectedDate) => {
+    const currentDate = selectedDate;
+    setShow(false);
+    setDate(currentDate);
+  };
+
+  const showMode = (currentMode) => {
+    setShow(true);
+    setMode(currentMode);
+  };
+
+  const showDatepicker = () => {
+    showMode("date");
+  };
+
+  const showTimepicker = () => {
+    showMode("time");
+  };
+
   return (
     <SafeAreaView style={styles.container}>
-      {/* <View style={styles.verticalLIneConrtainer}>
-        <View style={styles.IconContainer}>
-          <MaterialIcons
-            style={styles.vIcon2}
-            name="my-location"
-            size={24}
-            color="black"
-          />
-          <View style={styles.verticleLine}></View>
-          <Entypo
-            style={styles.vIcon}
-            name="location-pin"
-            size={24}
-            color="black"
-          />
-        </View>
-      </View> */}
       <View style={styles.work}>
         <View style={styles.tryContainer}>
           <Text style={styles.PickupText}>Pickup Location</Text>
@@ -33,8 +42,6 @@ const PickLocation = ({ navigation }) => {
             placeholder="Robert International Airport"
             placeholderTextColor={"#000"}
           />
-
-          {/* <Text style={styles.DropdownText}>Robert International Airport</Text> */}
         </View>
 
         <View style={styles.tryContainer2}>
@@ -44,24 +51,38 @@ const PickLocation = ({ navigation }) => {
             placeholder="Boulevard Palace, Sinkor"
             placeholderTextColor={"#000"}
           />
-          {/* <Text style={styles.DropdownText}>Boulevard Palace, Sinkor</Text> */}
         </View>
         <View style={styles.dateTimeContainer}>
           <View style={styles.dateContainer}>
             <Text style={styles.PickupText}>Date</Text>
-            <Text style={styles.dateText}>Feb 28, 2024</Text>
+            <Text style={styles.dateText} onPress={showDatepicker}>
+              {date.toLocaleDateString(undefined, options)}
+            </Text>
           </View>
           <View style={styles.hourContainer}>
             <Text style={styles.PickupText}>Time</Text>
-            <Text style={styles.dateText}>8: 30 PM</Text>
+
+            <Text style={styles.dateText} onPress={showTimepicker}>
+              {date.toLocaleTimeString("en-US")}
+            </Text>
           </View>
         </View>
-
         <Pressable onPress={() => navigation.navigate("SelectCartScreen")}>
           <View style={styles.buttonContainer}>
             <Text style={styles.buttonText}>Continue</Text>
           </View>
         </Pressable>
+        
+        {show && (
+          <DateTimePicker
+            testID="dateTimePicker"
+            value={date}
+            mode={mode}
+            display="spinner"
+            is24Hour={true}
+            onChange={onChange}
+          />
+        )}
       </View>
     </SafeAreaView>
   );
@@ -72,53 +93,26 @@ export default PickLocation;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // margin: 16,
     marginTop: 100,
-    // margin: 0,
-    // padding: 0,
     paddingHorizontal: 20,
-  },
-
-  background: {
-    backgroundColor: "white",
-    flex: 1,
-    borderTopLeftRadius: 35,
-    borderTopRightRadius: 35,
   },
 
   input: {
     fontSize: 18,
   },
 
-  lineStyle: {
-    borderWidth: 2,
-    borderColor: "gray",
-    marginLeft: 120,
-    marginTop: 30,
-    width: 120,
-    alignItems: "center",
-  },
-
-  work: {
-    // marginTop: -270,
-    // paddingLeft: 10,
-  },
+  work: {},
 
   tryContainer: {
-    // top: 0,
-    // left: 32,
     backgroundColor: "#e8e8e8",
     borderRadius: 10,
     padding: 10,
-    // width: "86%",
   },
 
   tryContainer2: {
-    // marginLeft: 32,
     backgroundColor: "#e8e8e8",
     borderRadius: 10,
     padding: 10,
-    // width: "86%",
     marginTop: 10,
   },
 
@@ -127,47 +121,10 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
 
-  DropdownText: {
-    fontSize: 23,
-  },
-
-  verticalLIneConrtainer: {
-    width: "100%",
-    marginBottom: 20,
-    marginLeft: 8,
-    marginTop: 2,
-  },
-
-  vIcon: {
-    fontSize: 30,
-    // marginTop: 3,
-  },
-
-  vIcon2: {
-    fontSize: 30,
-    // marginTo: 10,
-    marginTop: 19,
-  },
-  IconContainer: {
-    marginTop: 70,
-  },
-
-  verticleLine: {
-    height: "35%",
-    width: 1,
-    backgroundColor: "#909090",
-    marginLeft: 15,
-    marginTop: 5,
-  },
-
   dateTimeContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
     marginTop: 10,
-    // margin: 15,
-    // marginLeft: 30,
-    // paddingLeft: 3,
-    // width: 0,
   },
 
   dateContainer: {
@@ -181,24 +138,17 @@ const styles = StyleSheet.create({
     backgroundColor: "#e8e8e8",
     padding: 10,
     paddingHorizontal: 30,
-
     borderRadius: 10,
-    // width: 150,
   },
 
   dateText: {
-    fontSize: 18,
+    fontSize: 16,
   },
-
-  //  button styes
 
   buttonContainer: {
     backgroundColor: "#211951",
     borderRadius: 5,
-    // paddingVertical: 5,
-    // width: 300,
     padding: 12,
-    // marginLeft: 30,
     marginTop: 30,
   },
 
